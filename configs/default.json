@@ -1,0 +1,16 @@
+{
+    "acc_steps": 1,
+    "batch_size": 32,
+    "config_file": "model",
+    "data_folder": "/home/yutong/data",
+    "drop_limit": 0.5,
+    "epochs": 100,
+    "k_top": 6,
+    "lr": 1e-3,
+    "mask_ratio": 0.25,
+    "num_workers": 4,
+    "prefetch_factor": 8,
+    "w_decay": 1e-5,
+    "which_data": "large",
+    "window": 24
+}
