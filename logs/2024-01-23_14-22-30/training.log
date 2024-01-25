@@ -312,3 +312,31 @@ Val loss
      mae     mape     rmse
 5.437198 0.213804 8.766388
 2024-01-24 18:09:15 - training_logger - INFO - Epoch 47.
+2024-01-24 18:49:54 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask         curl
+0.124837 0.125098  0.124057 45303.581351
+Val loss
+     mae    mape     rmse
+5.464647 0.21415 8.921953
+2024-01-24 18:49:54 - training_logger - INFO - Epoch 48.
+2024-01-24 19:29:03 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask         curl
+0.124089 0.123937  0.124545 48723.017469
+Val loss
+     mae     mape     rmse
+5.385575 0.211834 8.537579
+2024-01-24 19:29:03 - training_logger - INFO - Epoch 49.
+2024-01-24 20:09:04 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.124508 0.124565  0.124339 47115.60918
+Val loss
+     mae    mape     rmse
+5.390725 0.21172 8.715088
+2024-01-24 20:09:04 - training_logger - INFO - Training process completed.
+2024-01-24 20:16:18 - training_logger - INFO - 
+Test loss
+    mae     mape      rmse
+7.49919 0.166248 12.508261
