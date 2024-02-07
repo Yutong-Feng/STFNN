@@ -2,7 +2,7 @@
     "acc_steps": 1,
     "batch_size": 32,
     "config_file": "model",
-    "data_folder": "/home/yutong/data",
+    "data_folder": "/home/user/data/air2018",
     "drop_limit": 0.5,
     "epochs": 100,
     "k_top": 6,
@@ -10,7 +10,8 @@
     "mask_ratio": 0.25,
     "num_workers": 4,
     "prefetch_factor": 8,
+    "skip_step": 4,
     "w_decay": 1e-5,
     "which_data": "large",
-    "window": 24
+    "window": 6
 }

@@ -1,0 +1,343 @@
+2024-02-04 05:27:55 - training_logger - INFO - 
+       arg_name                   value       source  state
+      acc_steps                       1   model.json   USED
+     batch_size                      16   model.json   USED
+    config_file                   model default.json   USED
+    data_folder /home/user/data/air2018 default.json   USED
+       dim_feed                      64   model.json   USED
+     drop_limit                     0.5 default.json   USED
+      dym_graph                    True   model.json   USED
+         epochs                      50   model.json   USED
+        hid_dim                      64   model.json   USED
+     hid_layers                       2   model.json   USED
+          k_top                       6   model.json   USED
+          label                    pm25   model.json   USED
+             lr                   0.001 default.json   USED
+     mask_ratio                    0.25 default.json   USED
+       max_step                       2     terminal   USED
+        mm_size                       0   model.json   USED
+          nhead                       1   model.json   USED
+     non_linear                    gelu   model.json   USED
+    num_workers                       4   model.json   USED
+prefetch_factor                       2   model.json   USED
+    ring_layers                       3   model.json   USED
+    s_embed_dim                       2   model.json FORCED
+      skip_step                       4 default.json   USED
+       st_embed                  simple   model.json   USED
+ step_embed_dim                       6   model.json   USED
+    t_embed_dim                       8   model.json   USED
+ time_embed_dim                       8   model.json   USED
+        w_decay                 0.00001 default.json   USED
+  weight_layers                       3   model.json   USED
+     which_data                   large   model.json   USED
+         window                       6 default.json   USED
+  wth_embed_dim                      16   model.json   USED
+2024-02-04 05:27:55 - training_logger - INFO - Device num: 1
+2024-02-04 05:27:55 - training_logger - INFO - Device: cuda
+2024-02-04 05:28:11 - training_logger - INFO - Starting the training process...
+2024-02-04 05:28:11 - training_logger - INFO - Epoch 0.
+2024-02-04 05:34:57 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.331635 0.331645  0.331606 8640.281259
+2024-02-04 05:34:57 - training_logger - INFO - Epoch 1.
+2024-02-04 05:41:35 - training_logger - INFO - 
+Train loss
+   main     mask  non_mask        curl
+0.27112 0.271214   0.27084 6215.159094
+2024-02-04 05:41:35 - training_logger - INFO - Epoch 2.
+2024-02-04 05:48:16 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.266153 0.265323  0.268642 5251.896698
+2024-02-04 05:48:16 - training_logger - INFO - Epoch 3.
+2024-02-04 05:54:55 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.266226 0.266106  0.266587 4732.966785
+2024-02-04 05:54:55 - training_logger - INFO - Epoch 4.
+2024-02-04 06:01:34 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.266708 0.267031  0.265737 4514.591851
+2024-02-04 06:01:34 - training_logger - INFO - Epoch 5.
+2024-02-04 06:08:16 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.263112 0.261767  0.267147 4116.796213
+2024-02-04 06:08:16 - training_logger - INFO - Epoch 6.
+2024-02-04 06:14:52 - training_logger - INFO - 
+Train loss
+    main    mask  non_mask        curl
+0.265302 0.26546  0.264827 4008.806466
+2024-02-04 06:14:52 - training_logger - INFO - Epoch 7.
+2024-02-04 06:21:25 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.264594 0.264645  0.264441 3876.166409
+2024-02-04 06:21:25 - training_logger - INFO - Epoch 8.
+2024-02-04 06:28:01 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.264082 0.263775  0.265003 3585.713821
+2024-02-04 06:28:01 - training_logger - INFO - Epoch 9.
+2024-02-04 06:34:42 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.263185 0.262787   0.26438 3277.823379
+2024-02-04 06:34:42 - training_logger - INFO - Epoch 10.
+2024-02-04 06:41:37 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.264287 0.264533   0.26355 3259.369706
+2024-02-04 06:41:37 - training_logger - INFO - Epoch 11.
+2024-02-04 06:48:27 - training_logger - INFO - 
+Train loss
+    main    mask  non_mask        curl
+0.262575 0.26241  0.263073 2879.355597
+2024-02-04 06:48:27 - training_logger - INFO - Epoch 12.
+2024-02-04 06:55:14 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.262623 0.262816  0.262042 2566.588281
+2024-02-04 06:55:14 - training_logger - INFO - Epoch 13.
+2024-02-04 07:01:56 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.260199 0.259384  0.262645 2168.981858
+2024-02-04 07:01:56 - training_logger - INFO - Epoch 14.
+2024-02-04 07:08:35 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.261039 0.261434  0.259855 1917.995024
+2024-02-04 07:08:35 - training_logger - INFO - Epoch 15.
+2024-02-04 07:15:18 - training_logger - INFO - 
+Train loss
+   main     mask  non_mask        curl
+0.25967 0.259787  0.259317 1670.949039
+2024-02-04 07:15:18 - training_logger - INFO - Epoch 16.
+2024-02-04 07:22:00 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.259854 0.260123  0.259045 1536.042491
+2024-02-04 07:22:00 - training_logger - INFO - Epoch 17.
+2024-02-04 07:28:40 - training_logger - INFO - 
+Train loss
+    main    mask  non_mask        curl
+0.257224 0.25677  0.258585 1524.488049
+2024-02-04 07:28:40 - training_logger - INFO - Epoch 18.
+2024-02-04 07:35:24 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.255338 0.254693  0.257275 1254.054967
+2024-02-04 07:35:24 - training_logger - INFO - Epoch 19.
+2024-02-04 07:42:06 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask        curl
+0.257979 0.258094  0.257634 1146.208757
+2024-02-04 07:42:06 - training_logger - INFO - Epoch 20.
+2024-02-04 07:48:46 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.254628 0.254423  0.255241 1110.78523
+2024-02-04 07:48:46 - training_logger - INFO - Epoch 21.
+2024-02-04 07:55:26 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask      curl
+0.255236 0.255838  0.253432 1047.9764
+2024-02-04 07:55:26 - training_logger - INFO - Epoch 22.
+2024-02-04 08:02:10 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.255445 0.256094  0.253499 854.660689
+2024-02-04 08:02:10 - training_logger - INFO - Epoch 23.
+2024-02-04 08:08:56 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.251737 0.251295  0.253064 756.693058
+2024-02-04 08:08:56 - training_logger - INFO - Epoch 24.
+2024-02-04 08:15:37 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.252826 0.253035  0.252199 812.950412
+2024-02-04 08:15:37 - training_logger - INFO - Epoch 25.
+2024-02-04 08:22:19 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.254306 0.255965   0.24933 809.769336
+2024-02-04 08:22:19 - training_logger - INFO - Epoch 26.
+2024-02-04 08:28:55 - training_logger - INFO - 
+Train loss
+    main    mask  non_mask       curl
+0.253457 0.25494  0.249008 795.905597
+2024-02-04 08:28:55 - training_logger - INFO - Epoch 27.
+2024-02-04 08:35:38 - training_logger - INFO - 
+Train loss
+    main    mask  non_mask       curl
+0.250129 0.24997  0.250605 824.188414
+2024-02-04 08:35:38 - training_logger - INFO - Epoch 28.
+2024-02-04 08:42:17 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.250425 0.250828  0.249216 826.710992
+2024-02-04 08:42:17 - training_logger - INFO - Epoch 29.
+2024-02-04 08:48:53 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.250079 0.250543  0.248685 782.797578
+2024-02-04 08:48:53 - training_logger - INFO - Epoch 30.
+2024-02-04 08:55:36 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.249374 0.249834  0.247992 839.119972
+2024-02-04 08:55:36 - training_logger - INFO - Epoch 31.
+2024-02-04 09:02:15 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.249919 0.250739  0.247458 837.173086
+2024-02-04 09:02:15 - training_logger - INFO - Epoch 32.
+2024-02-04 09:08:57 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.246159 0.245395  0.248452 734.671567
+2024-02-04 09:08:57 - training_logger - INFO - Epoch 33.
+2024-02-04 09:15:35 - training_logger - INFO - 
+Train loss
+    main    mask  non_mask       curl
+0.247397 0.24736  0.247506 737.517625
+2024-02-04 09:15:35 - training_logger - INFO - Epoch 34.
+2024-02-04 09:22:17 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.248589 0.249052  0.247198 707.261336
+2024-02-04 09:22:17 - training_logger - INFO - Epoch 35.
+2024-02-04 09:31:17 - training_logger - INFO - Save Model Parameters...
+2024-02-04 09:31:17 - training_logger - INFO - 
+Train loss
+   main     mask  non_mask       curl
+0.24777 0.248212  0.246442 686.222014
+Val loss
+     mae     mape      rmse
+7.033543 0.269145 11.806169
+2024-02-04 09:31:17 - training_logger - INFO - Epoch 36.
+2024-02-04 09:40:22 - training_logger - INFO - Save Model Parameters...
+2024-02-04 09:40:22 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.248893 0.250272  0.244756 700.129816
+Val loss
+     mae     mape      rmse
+6.993754 0.267771 11.678748
+2024-02-04 09:40:22 - training_logger - INFO - Epoch 37.
+2024-02-04 09:49:26 - training_logger - INFO - Save Model Parameters...
+2024-02-04 09:49:26 - training_logger - INFO - 
+Train loss
+   main    mask  non_mask       curl
+0.24761 0.24757  0.247731 651.779605
+Val loss
+     mae    mape      rmse
+6.991602 0.26729 11.812035
+2024-02-04 09:49:26 - training_logger - INFO - Epoch 38.
+2024-02-04 09:58:36 - training_logger - INFO - Save Model Parameters...
+2024-02-04 09:58:36 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.245142 0.244767  0.246266 640.437129
+Val loss
+     mae     mape      rmse
+6.989503 0.267185 11.698239
+2024-02-04 09:58:36 - training_logger - INFO - Epoch 39.
+2024-02-04 10:07:45 - training_logger - INFO - 
+Train loss
+   main     mask  non_mask       curl
+0.24569 0.245433  0.246459 665.511212
+Val loss
+     mae     mape      rmse
+7.022378 0.268756 11.904487
+2024-02-04 10:07:45 - training_logger - INFO - Epoch 40.
+2024-02-04 10:16:48 - training_logger - INFO - 
+Train loss
+    main    mask  non_mask       curl
+0.244511 0.24485  0.243493 614.000651
+Val loss
+     mae     mape      rmse
+6.998883 0.267686 11.830701
+2024-02-04 10:16:48 - training_logger - INFO - Epoch 41.
+2024-02-04 10:26:04 - training_logger - INFO - Save Model Parameters...
+2024-02-04 10:26:04 - training_logger - INFO - 
+Train loss
+   main     mask  non_mask       curl
+0.24352 0.243511  0.243547 659.538368
+Val loss
+     mae     mape      rmse
+6.979451 0.267003 11.625963
+2024-02-04 10:26:04 - training_logger - INFO - Epoch 42.
+2024-02-04 10:35:06 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.243082 0.242961  0.243445 656.514267
+Val loss
+     mae     mape      rmse
+6.993972 0.267652 11.506625
+2024-02-04 10:35:06 - training_logger - INFO - Epoch 43.
+2024-02-04 10:44:10 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.242294 0.241723   0.24401 643.808655
+Val loss
+     mae     mape      rmse
+6.979675 0.267596 11.665325
+2024-02-04 10:44:10 - training_logger - INFO - Epoch 44.
+2024-02-04 10:53:21 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask      curl
+0.242026 0.241453  0.243744 691.60271
+Val loss
+     mae     mape     rmse
+6.991667 0.267239 11.56011
+2024-02-04 10:53:21 - training_logger - INFO - Epoch 45.
+2024-02-04 11:02:36 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.244193 0.244634  0.242871 702.249143
+Val loss
+     mae     mape      rmse
+7.002443 0.267853 11.716602
+2024-02-04 11:02:36 - training_logger - INFO - Epoch 46.
+2024-02-04 11:11:50 - training_logger - INFO - 
+Train loss
+    main    mask  non_mask       curl
+0.243434 0.24351  0.243205 718.786257
+Val loss
+     mae     mape      rmse
+7.027826 0.268138 11.707135
+2024-02-04 11:11:51 - training_logger - INFO - Epoch 47.
+2024-02-04 11:20:54 - training_logger - INFO - Save Model Parameters...
+2024-02-04 11:20:54 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.242327 0.242094  0.243024 736.184126
+Val loss
+     mae     mape     rmse
+6.968557 0.266488 11.75579
+2024-02-04 11:20:54 - training_logger - INFO - Epoch 48.
+2024-02-04 11:29:53 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.244006 0.244919  0.241266 733.461011
+Val loss
+     mae     mape     rmse
+7.023691 0.268915 11.43799
+2024-02-04 11:29:53 - training_logger - INFO - Epoch 49.
+2024-02-04 11:38:57 - training_logger - INFO - 
+Train loss
+    main     mask  non_mask       curl
+0.242244 0.242399   0.24178 696.689665
+Val loss
+     mae     mape      rmse
+6.982708 0.267132 11.736952
+2024-02-04 11:38:57 - training_logger - INFO - Training process completed.
+2024-02-04 11:41:12 - training_logger - INFO - 
+Test loss
+      mae     mape      rmse
+11.116457 0.231278 19.697576

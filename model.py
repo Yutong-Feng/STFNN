@@ -20,13 +20,15 @@ class FeatFusion(nn.Module):
 
         in_dim = args.s_embed_dim + args.t_embed_dim + 10 +\
             2 * args.wth_embed_dim + 3 * args.time_embed_dim
-        self.net = nn.Sequential(
+        self.head = nn.Sequential(
             Linear3D(in_dim, args.hid_dim),
             self.non_linear
         )
+        self.net = nn.Sequential()
         for _ in range(args.hid_layers):
             self.net.append(Linear3D(args.hid_dim, args.hid_dim))
             self.net.append(self.non_linear)
+        self.tail = nn.Sequential(Linear3D(args.hid_dim, 3))
 
     def forward(self, st: th.Tensor, feat: th.Tensor):
         # st, feat -> hid_dim
@@ -48,7 +50,9 @@ class FeatFusion(nn.Module):
         holiday_code = self.holiday_embed(is_holiday)
         input_tensor = th.concat(
             [st_code, con_feat, wind_dire_code, wth_code, hour_code, wkday_code, holiday_code], dim=2)
-        result = self.net(input_tensor)
+        result = self.head(input_tensor)
+        result = result + self.net(result)
+        result = self.tail(result)
         return result
 
 
@@ -97,20 +101,11 @@ class RingEstimation(nn.Module):
 class STAttention(nn.Module):
     def __init__(self, args, device) -> None:
         super().__init__()
-        self.read_out = FeatFusion(args, device)
-        self.encoder = nn.TransformerEncoder(
-            nn.TransformerEncoderLayer(
-                d_model=args.hid_dim,
-                dim_feedforward=args.dim_feed,
-                nhead=args.nhead,
-                activation="gelu",
-                batch_first=True,
-            ),
-            num_layers=args.weight_layers,
-        )
+        st_dim = args.s_embed_dim + args.t_embed_dim
+        self.st_embed = get_st_embedding(args, device)
         self.decoder = nn.TransformerDecoder(
             nn.TransformerDecoderLayer(
-                d_model=args.hid_dim,
+                d_model=st_dim,
                 dim_feedforward=args.dim_feed,
                 nhead=args.nhead,
                 activation="gelu",
@@ -118,20 +113,14 @@ class STAttention(nn.Module):
             ),
             num_layers=args.weight_layers,
         )
-        self.linear = Linear3D(args.hid_dim, 1)
+        self.linear = Linear3D(st_dim, 1)
 
     def forward(self,
                 query_st: th.Tensor,
-                query_feat: th.Tensor,
-                ngb_st: th.Tensor,
-                ngb_feat: th.Tensor):
-        neighbor_code = self.read_out(ngb_st, ngb_feat)
-        query_code = self.read_out(query_st, query_feat)
-
-        query_repr = self.encoder(query_code)
-        neighbor_repr = self.decoder(neighbor_code, query_repr)
-
-        result = self.linear(neighbor_repr).squeeze(2).softmax(dim=1)
+                ngb_st: th.Tensor):
+        weight = self.decoder(tgt=self.st_embed(
+            ngb_st), memory=self.st_embed(query_st))
+        result = self.linear(weight).squeeze(2).softmax(dim=1)
         return result
 
 
@@ -146,10 +135,7 @@ class PyramidalInference(nn.Module):
         self.device = device
 
         self.st_embed = get_st_embedding(args, device)
-        self.read_out_f = FeatFusion(args, device)
-        self.read_out_l = Linear3D(args.hid_dim, 3)
-        self.read_in_f = FeatFusion(args, device)
-        self.read_in_l = Linear3D(args.hid_dim, 3)
+        self.read_out = FeatFusion(args, device)
 
         self.ring_est = RingEstimation(args, device)
         self.dym_graph = args.dym_graph
@@ -192,28 +178,23 @@ class PyramidalInference(nn.Module):
 
     def forward(self,
                 query_st: th.Tensor,
-                query_feat: th.Tensor,
                 ngb_st: th.Tensor,
                 ngb_feat: th.Tensor,
                 ngb_label: th.Tensor,
                 dist: th.Tensor):
 
         query_st = query_st.unsqueeze(1).repeat(1, ngb_st.shape[1], 1)
-        query_feat = query_feat.unsqueeze(dim=1).repeat(
-            1, ngb_feat.shape[1], 1
-        )
 
         start_st = ngb_st.clone()
         final_st = query_st.clone()
 
-        start_grad = self.read_out_l(self.read_out_f(ngb_st, ngb_feat))
+        start_grad = self.read_out(ngb_st, ngb_feat)
         norm_grad, curl_loss = self.pyramidal_aggregation(
             start_st, start_grad, final_st)
-        end_grad = self.read_in_l(self.read_in_f(norm_grad, query_feat))
 
-        est_labels = end_grad.sum(dim=2)
+        est_labels = norm_grad.sum(dim=2)
         if self.dym_graph:
-            st_weight = self.st_weight(query_st, query_feat, ngb_st, ngb_feat)
+            st_weight = self.st_weight(query_st, ngb_st)
         else:
             st_weight = self.idw_ses(dist)
         result = th.einsum("bl,bl -> b", (ngb_label + est_labels), st_weight)
@@ -227,11 +208,10 @@ class STNeVF(nn.Module):
 
     def forward(self, query_info: th.Tensor, ngb_data: th.Tensor, dist: th.Tensor):
         query_st = query_info[:, :3]
-        query_feat = query_info[:, 3:]
         ngb_st = ngb_data[:, :, :3]
         ngb_feat = ngb_data[:, :, 3:-1]
         ngb_label = ngb_data[:, :, -1]
-        return self.backbone(query_st, query_feat, ngb_st, ngb_feat, ngb_label, dist)
+        return self.backbone(query_st, ngb_st, ngb_feat, ngb_label, dist)
 
 
 def get_model(args, device):

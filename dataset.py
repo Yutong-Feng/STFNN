@@ -181,7 +181,7 @@ def get_air_loader_normalizer(cfg):
     def generate_time_data(index, reverse=True):
         flag = -1 if reverse else 1
         data = np.stack(
-            [data_norm[index + flag * i, :, :] for i in range(window + 1)]
+            [data_norm[index + flag * i * cfg.skip_step, :, :] for i in range(window + 1)]
         ).transpose(1, 0, 2, 3)
         time_index = np.stack([real_time[index + flag * i]
                                for i in range(window + 1)]).transpose(1, 0)
