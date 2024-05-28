@@ -1,10 +1,10 @@
 {
     "acc_steps": 1,
-    "batch_size": 32,
+    "batch_size": 16,
     "config_file": "model",
-    "data_folder": "/home/user/data/air2018",
+    "data_folder": "/data/yutongfeng/air2018",
     "drop_limit": 0.5,
-    "epochs": 100,
+    "epochs": 200,
     "k_top": 6,
     "lr": 1e-3,
     "mask_ratio": 0.25,

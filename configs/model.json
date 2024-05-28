@@ -1,9 +1,6 @@
 {
-    "acc_steps": 1,
-    "batch_size": 16,
     "dim_feed": 64,
     "dym_graph": true,
-    "epochs": 50,
     "hid_dim": 64,
     "hid_layers": 2,
     "k_top": 6,
