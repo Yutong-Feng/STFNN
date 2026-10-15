@@ -2,6 +2,10 @@
 
 [English](README.md)
 
+## 🔥 新闻
+
+- **[2026-10]** 我们重构了代码，提供了一个更干净简洁的版本：[STFNN-refactor](https://github.com/Yutong-Feng/STFNN-refactor)。
+
 论文 **"Spatio-Temporal Field Neural Networks for Air Quality Inference"**（IJCAI-24，AI for Good 专题）的官方 PyTorch 实现 [[论文]](https://www.ijcai.org/proceedings/2024/0803.pdf)。
 
 空气质量推断是指在没有监测站的位置估计污染物浓度。STFNN 把空气质量看作定义在坐标 `(经度, 纬度, 时间)` 上的连续**时空场**，学习的是这个场的**梯度**，而不是场的取值。对每个目标位置，把邻居站点的观测值沿直线路径积分学到的梯度，"搬运"到目标处，再用学习到的权重融合各个邻居的估计。论文把这种结合全局时空场与局部时空图的框架称为 **金字塔推断（Pyramidal Inference）**：

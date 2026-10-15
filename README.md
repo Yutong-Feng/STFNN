@@ -2,6 +2,10 @@
 
 [中文](README_zh.md)
 
+## 🔥 News
+
+- **[2026-10]** We refactored the code into a cleaner and more concise version: [STFNN-refactor](https://github.com/Yutong-Feng/STFNN-refactor).
+
 Official PyTorch implementation of **"Spatio-Temporal Field Neural Networks for Air Quality Inference"** (IJCAI-24, AI for Good track) [[paper]](https://www.ijcai.org/proceedings/2024/0803.pdf).
 
 Air quality inference estimates pollutant concentrations at locations without monitoring stations. STFNN treats air quality as a continuous **spatio-temporal field** over coordinates `(lng, lat, t)` and learns the field's **gradient** instead of its values. For each target location, a neighbor's observed reading is moved toward the target by integrating the learned gradient along a straight path. The per-neighbor estimates are then combined with learned weights. The paper calls this hybrid of a global field and a local spatio-temporal graph **Pyramidal Inference**:
